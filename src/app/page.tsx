@@ -98,7 +98,7 @@ export default function Home() {
                   key={p.id}
                   layout
                   className={`border-20 aspect-[3/4] overflow-hidden cursor-crosshair group ${
-                    franchise === "empire" ? brandColors[p.franchise] : brandColors[p.franchise]
+                    brandColors[p.franchise as keyof typeof brandColors]
                   }`}
                   whileHover={{ scale: franchise === "empire" ? 1.02 : 1.04 }}
                 >
