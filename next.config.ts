@@ -2,16 +2,20 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   basePath: "/records",
-  // assetPrefix: "/records/",  
-  // Optional:  2 add custom images/domains later 
-  // images: {
-  //   remotePatterns: [
-  //     {
-  //       protocol: "https",
-  //       hostname: "res.cloudinary.com",
-  //     },
-  //   ],
-  // },
+
+  //  redirect root traffic to /records
+  async redirects() {
+    return [
+      {
+        source: "/",
+        destination: "/records",
+        permanent: true, // 301 redirect for SEO
+      },
+    ];
+  },
+
+  // add images from other domains
+  // images: { remotePatterns: [{ hostname: "res.cloudinary.com" }] },
 };
 
 export default nextConfig;
